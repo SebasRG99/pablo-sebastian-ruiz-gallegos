@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo para los usuarios
+model Users {
+  id           String   @id @default(cuid()) // Identificador único del usuario
+  name         String
+  phone        String   @unique
+  password     String
+  img_profile  String   
+  tokens       AccessTokens[] // Relación uno a muchos con los tokens
+}
+
+// Modelo para productos del catálogo
+model Products {
+  id          String   @id @default(cuid()) // Identificador único del producto
+  name        String  
+  description String   
+  height      Float    
+  length      Float   
+  width       Float    
+}
+
+// Modelo para tokens de acceso
+model AccessTokens {
+  id        String   @id @default(cuid())
+  token     String
+  user_id   String
+  user      Users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  expiresAt DateTime // Fecha de expiración del token
+}
