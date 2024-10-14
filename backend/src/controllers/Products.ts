@@ -40,8 +40,8 @@ export const getProductsByIds = async (req: Request, res: Response): Promise<voi
         });
         return;
     }
-
-    const idsArray = ids.split(','); // Aqui convertimos la cadena en un array de IDs
+    // Aqui convertimos la cadena en un array de IDs, usando split para separar por ","
+    const idsArray = ids.split(','); 
 
     try {
         const products = await getByIds(idsArray);

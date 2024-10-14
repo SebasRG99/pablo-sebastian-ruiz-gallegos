@@ -6,5 +6,5 @@ export interface IUser {
     password:string          
     phone: string;          
     img_profile: string;    
-    tokens?: IAccessToken[]; // Relación con los tokens de acceso (opcional)
+    tokens?: IAccessToken[]; // Relación con los tokens de acceso, se hace opcional ya que un usuario no siempre tendra tokens
 }

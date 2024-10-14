@@ -23,14 +23,14 @@ model Users {
   tokens       AccessTokens[] // Relación uno a muchos con los tokens
 }
 
-// Modelo para productos del catálogo
+// Modelo para productos
 model Products {
   id          String   @id @default(cuid()) // Identificador único del producto
   name        String  
   description String   
   height      Float    
   length      Float   
-  width       Float    
+  width       Float   
 }
 
 // Modelo para tokens de acceso

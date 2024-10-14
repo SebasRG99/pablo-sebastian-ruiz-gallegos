@@ -3,7 +3,6 @@ import {
     getProducts, 
     getProductsByIds, 
     postBatchProducts, 
-    //patchProduct,
     putBatchProducts, 
     deleteBatchProducts,
     deleteAllProducts 
@@ -25,9 +24,6 @@ router.post("/batch", verifyJWT, validatePayload(createProductSchema), postBatch
 
 // Actualizar múltiples productos (batch PUT)
 router.put("/batch", verifyJWT, validatePayload(putProductSchema), putBatchProducts); //Lista
-
-// Actualizar parcialmente un producto (comentar si no se necesita)
-// router.patch("/:id", verifyJWT, validatePayload(patchProductSchema), patchProduct);
 
 // Eliminar un producto por ID
 router.delete("/batch", verifyJWT, deleteBatchProducts); //Lista

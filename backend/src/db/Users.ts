@@ -1,7 +1,7 @@
 import { IUser } from "../interfaces/User";
 import { prismaClient } from "../prisma/client";
 
-
+//Buscar usuarios por telefono
 export async function searchUserByPhone(phone: string) {
     return await prismaClient.users.findFirst({where: {phone}});
 }

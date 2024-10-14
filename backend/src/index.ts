@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware de CORS y parseo de JSON
 app.use(cors())
-app.use(express.json())// Middleware para parsear JSON
+app.use(express.json())
 
 // Rutas
 app.use('/auth', authRoutes)
