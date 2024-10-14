@@ -7,20 +7,20 @@ import './tasks/cron'
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para CORS y parseo de JSON
+// Middleware de CORS y parseo de JSON
 app.use(cors())
 app.use(express.json())// Middleware para parsear JSON
 
 // Rutas
 app.use('/auth', authRoutes)
-app.use('/products', productRoutes) // Asegúrate de habilitar la ruta si es necesario
+app.use('/products', productRoutes)
 
-// Ruta de prueba
+// Ruta Inicial
 app.get('/', (_, res) => {
     res.send('¡Servidor Express con TypeScript funcionando!')
 })
 
-// Iniciar el servidor
+// Inicio de Server
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT} 🚀`)
 })
